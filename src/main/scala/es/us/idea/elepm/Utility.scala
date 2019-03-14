@@ -11,11 +11,12 @@ object Utility {
 
     val xlog =
       extract(
-        define trace id("accode"),
+        define trace id("gticode"),
         define trace event(
-          activity = "workstation",
+          activity = "incidences.incidencetype",
           criteria = orderBy(t"start_date" -> toDate("MM/dd/yyyy HH:mm:ss")),
-          timestamp = t"start_date" -> toDate("MM/dd/yyyy HH:mm:ss")
+          timestamp = t"start_date" -> toDate("MM/dd/yyyy HH:mm:ss"),
+          resource = t"incidencecode"
         )
       ) from "datasets/aircraft_dataset_anonymized.json"
 
